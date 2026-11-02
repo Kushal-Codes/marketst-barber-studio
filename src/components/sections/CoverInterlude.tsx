@@ -1,6 +1,6 @@
 import React from 'react';
 import { businessData } from '../../data/business';
-import { Sparkles, Calendar, MessageSquare } from 'lucide-react';
+import { Calendar, MessageSquare } from 'lucide-react';
 
 interface CoverInterludeProps {
   onOpenBooking: () => void;

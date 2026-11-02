@@ -1,6 +1,6 @@
 import React from 'react';
 import { businessData } from '../../data/business';
-import { MapPin, Phone, MessageSquare, ArrowUp, Scissors, Heart } from 'lucide-react';
+import { MapPin, Phone, MessageSquare, ArrowUp } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {

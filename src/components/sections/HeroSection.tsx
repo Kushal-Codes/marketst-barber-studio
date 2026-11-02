@@ -1,7 +1,7 @@
 import React from 'react';
 import { businessData, getStudioStatus } from '../../data/business';
 import { VerifiedStamp } from '../animations/VerifiedStamp';
-import { MapPin, Phone, MessageSquare, Calendar, Sparkles, CheckCircle2, ShieldCheck, Clock, Scissors } from 'lucide-react';
+import { MapPin, MessageSquare, Calendar, CheckCircle2, Scissors } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenBooking: () => void;

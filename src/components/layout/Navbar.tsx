@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { businessData, getStudioStatus } from '../../data/business';
-import { Phone, Calendar, Menu, X, MessageSquare, MapPin } from 'lucide-react';
+import { Calendar, Menu, X, MessageSquare } from 'lucide-react';
 
 interface NavbarProps {
   onOpenBooking: () => void;

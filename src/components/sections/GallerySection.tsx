@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { galleryItems, GalleryItem } from '../../data/gallery';
-import { Camera, ExternalLink, X, Scissors } from 'lucide-react';
+import { Camera, ExternalLink, X } from 'lucide-react';
 import { businessData } from '../../data/business';
 
 export const GallerySection: React.FC = () => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { servicesData, BarberService } from '../../data/services';
 import { businessData } from '../../data/business';
-import { X, Calendar, Clock, Check, MessageSquare, ExternalLink, MapPin } from 'lucide-react';
+import { X, MessageSquare, ExternalLink, MapPin } from 'lucide-react';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -17,8 +17,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [selectedService, setSelectedService] = useState<BarberService>(
     initialService || servicesData[0]
   );
-  const [preferredDate, setPreferredDate] = useState<string>('Today / Next Available');
-  const [preferredTime, setPreferredTime] = useState<string>('Afternoon (12:00 - 15:00)');
+  const preferredDate = 'Today / Next Available';
+  const preferredTime = 'Afternoon (12:00 - 15:00)';
   const [clientName, setClientName] = useState<string>('');
 
   if (!isOpen) return null;

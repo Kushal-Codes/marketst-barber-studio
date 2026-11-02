@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { servicesData, BarberService } from '../../data/services';
 import { businessData } from '../../data/business';
-import { Scissors, Clock, Check, ArrowRight, Sparkles, Calendar, MessageSquare, Heart } from 'lucide-react';
+import { Scissors, Clock, Check, ArrowRight, Sparkles, MessageSquare } from 'lucide-react';
 
 interface ServicesSectionProps {
   onSelectService: (service: BarberService) => void;

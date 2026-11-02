@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { MarqueeTicker } from './components/animations/MarqueeTicker';
 import { HeroSection } from './components/sections/HeroSection';

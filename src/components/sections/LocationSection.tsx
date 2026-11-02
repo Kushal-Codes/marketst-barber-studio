@@ -1,6 +1,6 @@
 import React from 'react';
 import { businessData, getStudioStatus } from '../../data/business';
-import { MapPin, Navigation, Clock, Phone, Mail, Calendar, MessageSquare } from 'lucide-react';
+import { MapPin, Navigation, Clock, Phone, MessageSquare } from 'lucide-react';
 
 export const LocationSection: React.FC<{ onOpenBooking: () => void }> = ({ onOpenBooking }) => {
   const status = getStudioStatus();
