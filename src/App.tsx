@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/layout/Navbar';
+import { MarqueeTicker } from './components/animations/MarqueeTicker';
 import { HeroSection } from './components/sections/HeroSection';
 import { ServicesSection } from './components/sections/ServicesSection';
+import { CoverInterlude } from './components/sections/CoverInterlude';
 import { GallerySection } from './components/sections/GallerySection';
 import { LocationSection } from './components/sections/LocationSection';
 import { Footer } from './components/layout/Footer';
@@ -24,12 +26,14 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A0A0C] text-stone-100 font-sans selection:bg-amber-500 selection:text-stone-950">
+    <div className="min-h-screen bg-canvas text-ink font-body selection:bg-purple-electric selection:text-white">
       <Navbar onOpenBooking={handleOpenBooking} />
       
       <main>
         <HeroSection onOpenBooking={handleOpenBooking} />
+        <MarqueeTicker />
         <ServicesSection onSelectService={handleSelectService} />
+        <CoverInterlude onOpenBooking={handleOpenBooking} />
         <GallerySection />
         <LocationSection onOpenBooking={handleOpenBooking} />
       </main>

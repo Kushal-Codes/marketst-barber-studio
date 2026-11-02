@@ -1,7 +1,7 @@
 import React from 'react';
 import { businessData, getStudioStatus } from '../../data/business';
-import { BarberPoleMotif, ScissorsMotif } from '../illustrations/BarberMotifs';
-import { MapPin, Phone, MessageSquare, Calendar, Star, Clock, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
+import { VerifiedStamp } from '../animations/VerifiedStamp';
+import { MapPin, Phone, MessageSquare, Calendar, Sparkles, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenBooking: () => void;
@@ -11,69 +11,89 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
   const status = getStudioStatus();
 
   return (
-    <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden bg-[#0A0A0C]">
-      {/* Warm Amber & Espresso Ambient Backlight */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[520px] bg-gradient-to-b from-amber-600/15 via-amber-700/5 to-transparent blur-3xl pointer-events-none" />
-      <div className="absolute top-20 right-10 w-80 h-80 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
+    <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden bg-white">
+      {/* Electric Purple Ambient Background Radiance */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[560px] bg-gradient-to-b from-purple-soft/60 via-purple-pale/40 to-transparent blur-3xl pointer-events-none" />
+      <div className="absolute -top-24 right-10 w-96 h-96 rounded-full bg-highlight/30 blur-3xl pointer-events-none" />
+
+      {/* Subtle Grid Lines Overlay (Architectural Barber Grid) */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#EDE9FE_1px,transparent_1px),linear-gradient(to_bottom,#EDE9FE_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-70 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Live Studio Status Pill */}
-        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-6 sm:mb-8 animate-fade-in">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-950/40 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-300">
-            <span className={`w-2.5 h-2.5 rounded-full ${status.isOpen ? 'bg-emerald-400 animate-ping' : 'bg-amber-400'}`} />
+        {/* Top Badges Bar */}
+        <div className="flex flex-wrap items-center gap-3 mb-6 sm:mb-8">
+          
+          <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-purple-soft px-3.5 py-1.5 text-xs font-display font-black uppercase tracking-wider text-purple-deep shadow-brutal-sm">
+            <span className={`w-2.5 h-2.5 rounded-full ${status.isOpen ? 'bg-emerald-500 animate-ping' : 'bg-purple-deep'}`} />
             <span>{status.statusText}</span>
           </div>
 
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#2B2834] bg-[#16141D] px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-stone-300">
-            <MapPin className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-            <span>92 Market St, Droylsden (M43 6DE)</span>
+          <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-white px-3.5 py-1.5 text-xs font-display font-bold uppercase tracking-wider text-ink shadow-brutal-sm">
+            <MapPin className="w-3.5 h-3.5 text-purple-electric shrink-0" />
+            <span>92 Market St · Droylsden</span>
           </div>
 
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/40 bg-emerald-950/30 px-3 py-1 text-xs font-bold text-emerald-400">
-            <Zap className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Zero Monthly Hosting Fees</span>
+          <div className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-highlight/40 px-3.5 py-1.5 text-xs font-display font-black text-purple-deep shadow-brutal-sm">
+            <Zap className="w-3.5 h-3.5 text-purple-electric fill-purple-electric" />
+            <span>£0 Monthly Fees · Free Hosting Forever</span>
           </div>
+
         </div>
 
-        {/* Main Content Grid: Left Copy & Pricing Spotlight, Right Real Instagram Cuts */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        {/* Main Grid: Left Typography, Right Real Facebook Image & Logo in Brutalist Frame */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
-          {/* Left Column: 7 Cols */}
+          {/* Left: 7 Columns */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-8">
-            <div className="flex items-center gap-3">
-              <ScissorsMotif className="w-10 h-10 text-amber-500" />
+            
+            {/* Real Logo + Sub-brand pill */}
+            <div className="flex items-center gap-3.5 p-2 pr-4 rounded-2xl bg-purple-pale border-2 border-ink shadow-brutal-sm w-fit">
+              <div className="w-12 h-12 rounded-xl overflow-hidden border-2 border-ink bg-white shrink-0">
+                <img
+                  src={businessData.logoUrl}
+                  alt="Market St. Barber Studio Official Logo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="flex flex-col">
-                <span className="font-mono text-xs font-black tracking-widest uppercase text-amber-400">
-                  Droylsden's Modern Barber Studio
+                <span className="font-display text-xs font-black tracking-widest uppercase text-purple-electric">
+                  Market St. Barber Studio
                 </span>
-                <span className="text-xs font-medium text-stone-400">
-                  Precision Skin Fades · Hot Towels · Beard Sculpting
+                <span className="font-body text-xs font-bold text-ink">
+                  Droylsden's Premier Modern Gents Grooming
                 </span>
               </div>
             </div>
 
-            {/* Editorial Headline */}
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight uppercase leading-[1.05]">
-              SHARP CRAFT.{' '}
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">
-                ZERO MONTHLY LOCK-IN.
+            {/* High-Impact Purple Editorial Headline */}
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-ink uppercase tracking-tight leading-[0.98]">
+              PRECISION CRAFT.{' '}
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-deep via-purple-electric to-highlight-accent drop-shadow-sm">
+                MODERN DROYLSDEN CUTS.
               </span>
             </h1>
 
             {/* Subcopy */}
-            <p className="font-sans text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl">
-              Step into Market St. Barber Studio on 92 Market Street in Droylsden. From crisp skin fades (£15) to luxury steamed hot towel shaves (£13) and complete full-service grooming packages (£40), we combine time-honoured barbering with modern styling.
+            <p className="font-body text-base sm:text-lg md:text-xl text-ink-muted leading-relaxed max-w-2xl">
+              From millimeter-precise skin fades (£15) to luxury steamed hot towel shaves (£13) and full grooming combos (£28 - £40), Market St. Barber Studio delivers sharp, confident haircuts right on 92 Market Street in Droylsden.
             </p>
+
+            {/* Hand-written Callout */}
+            <div className="flex items-center gap-3 pt-1">
+              <span className="font-hand text-2xl text-purple-deep font-bold -rotate-2 bg-highlight/30 px-3 py-1 rounded-lg border border-purple-deep/30">
+                ✍️ Zero Squarespace monthly fees — high-speed hosting is on us!
+              </span>
+            </div>
 
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <button
                 type="button"
                 onClick={onOpenBooking}
-                className="inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 px-7 py-4 font-sans text-base sm:text-lg font-black uppercase tracking-wider text-stone-950 shadow-xl shadow-amber-500/20 hover:scale-[1.02] active:scale-95 transition-all"
+                className="inline-flex items-center justify-center gap-3 rounded-2xl bg-purple-electric px-8 py-4 font-display text-base sm:text-lg font-black uppercase tracking-wider text-white border-2 border-ink shadow-brutal hover:bg-purple-deep hover:shadow-brutal-lg active:translate-x-0.5 active:translate-y-0.5 transition-all"
               >
-                <Calendar className="w-5 h-5 text-stone-950" />
+                <Calendar className="w-5 h-5 text-white" />
                 <span>BOOK APPOINTMENT</span>
               </button>
 
@@ -81,89 +101,98 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
                 href={businessData.booking.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-[#33303D] bg-[#16141D] px-6 py-4 font-sans text-base font-bold uppercase tracking-wider text-white hover:border-amber-500 hover:bg-[#201D28] transition-all"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-white px-7 py-4 font-display text-base font-bold uppercase tracking-wider text-ink shadow-brutal hover:bg-purple-pale hover:border-purple-deep transition-all active:translate-x-0.5 active:translate-y-0.5"
               >
-                <MessageSquare className="w-5 h-5 text-amber-400" />
-                <span>Chat on WhatsApp</span>
+                <MessageSquare className="w-5 h-4 text-emerald-600" />
+                <span>WhatsApp (07591 287327)</span>
               </a>
             </div>
 
             {/* Value Pillars */}
-            <div className="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 border-t border-[#26242B] max-w-xl text-xs font-bold uppercase text-stone-400 tracking-wider">
+            <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-3 border-t-2 border-purple-soft max-w-xl text-xs font-display font-black uppercase text-purple-deep tracking-wider">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-purple-electric shrink-0" />
                 <span>£15 Skin Fades</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-purple-electric shrink-0" />
                 <span>Hot Towel Steaming</span>
               </div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Free Hosting Forever</span>
+                <ShieldCheck className="w-4 h-4 text-purple-electric shrink-0" />
+                <span>Zero Monthly Costs</span>
               </div>
             </div>
+
           </div>
 
-          {/* Right Column: 5 Cols Real Photo Showcase Card */}
+          {/* Right: 5 Columns Brutalist Card with Real Facebook Image & Logo */}
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Barber pole graphic accent in corner */}
-              <div className="hidden sm:block absolute -top-8 -right-8 z-20 opacity-80">
-                <BarberPoleMotif className="w-20 h-20" />
+              {/* Rotating Stamp badge in corner */}
+              <div className="absolute -top-10 -right-6 z-20 hidden sm:block">
+                <VerifiedStamp className="w-32 h-32" />
               </div>
 
               {/* Main Photo Card */}
-              <div className="relative rounded-3xl border-2 border-amber-500/50 bg-[#16141D] p-3 shadow-2xl shadow-amber-950/40 overflow-hidden group">
-                <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-stone-950 border border-[#2B2834]">
+              <div className="relative rounded-3xl border-2 border-ink bg-purple-pale p-3.5 shadow-brutal-xl overflow-hidden group">
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-ink border-2 border-ink">
                   
-                  {/* REAL INSTAGRAM HERO CUT IMAGE */}
+                  {/* REAL FACEBOOK POST PHOTO */}
                   <img
-                    src="/images/real/marketst_hero.jpg"
-                    alt="Market St. Barber Studio real haircut showcase Droylsden Manchester"
+                    src="/images/real/real_cut_hero.jpg"
+                    alt="Market St. Barber Studio real client haircut Droylsden Manchester"
                     className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
                     loading="eager"
                   />
                   
-                  {/* Subtle Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F12] via-transparent to-transparent opacity-85" />
+                  {/* Subtle Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
 
-                  {/* Overlaid Provenance Badge */}
-                  <div className="absolute top-3 left-3 rounded-full border border-amber-500/60 bg-[#0F0F12]/90 backdrop-blur-md px-3 py-1 text-[11px] font-mono font-bold uppercase text-amber-300">
-                    Live Instagram Cut Showcase
+                  {/* Overlaid Verified Facebook Badge */}
+                  <div className="absolute top-3 left-3 rounded-full border-2 border-ink bg-white/95 backdrop-blur-md px-3.5 py-1 text-[11px] font-display font-black uppercase text-purple-deep shadow-brutal-sm">
+                    Verified Facebook Showcase
                   </div>
 
-                  {/* Bottom Studio Info Card */}
-                  <div className="absolute bottom-3 left-3 right-3 rounded-xl border border-[#33303D] bg-[#16141D]/95 backdrop-blur-md p-3.5 text-white">
+                  {/* Bottom Studio Info Overlay */}
+                  <div className="absolute bottom-3 left-3 right-3 rounded-xl border-2 border-ink bg-white/95 backdrop-blur-md p-3.5 text-ink shadow-brutal-sm">
                     <div className="flex items-center justify-between">
-                      <div>
-                        <span className="block text-[11px] font-mono uppercase text-amber-400 font-bold">
-                          Droylsden Studio Chair
-                        </span>
-                        <span className="font-serif text-sm font-bold">
-                          Surgical Skin Fade & Texture Top
-                        </span>
+                      <div className="flex items-center gap-2.5">
+                        <img
+                          src={businessData.logoUrl}
+                          alt="Logo thumbnail"
+                          className="w-9 h-9 rounded-lg border border-ink object-cover shrink-0"
+                        />
+                        <div>
+                          <span className="block text-[10px] font-mono uppercase text-purple-electric font-black">
+                            Studio Chair · Droylsden
+                          </span>
+                          <span className="font-display text-sm font-bold text-ink">
+                            Clean Skin Fade & Texture Top
+                          </span>
+                        </div>
                       </div>
-                      <span className="font-mono text-xs font-bold text-amber-400 bg-amber-950/70 px-2.5 py-1 rounded-lg border border-amber-500/40">
+                      <span className="font-display text-sm font-black text-purple-deep bg-purple-soft px-3 py-1 rounded-lg border border-purple-deep">
                         £15.00
                       </span>
                     </div>
                   </div>
+
                 </div>
               </div>
 
-              {/* Small Floating Proof Card */}
-              <div className="absolute -bottom-5 -left-4 rounded-2xl border border-amber-500/40 bg-[#16141D] p-3 shadow-xl hidden sm:flex items-center gap-3 z-20">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 font-black font-serif text-sm">
-                  M43
+              {/* Small Floating Proof Badge */}
+              <div className="absolute -bottom-6 -left-4 rounded-2xl border-2 border-ink bg-white p-3.5 shadow-brutal hidden sm:flex items-center gap-3 z-20">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-purple-electric text-white font-black font-display text-sm">
+                  ★ 5.0
                 </div>
                 <div>
-                  <span className="block font-serif text-xs font-bold text-white uppercase">
+                  <span className="block font-display text-xs font-black text-ink uppercase">
                     92 Market Street
                   </span>
-                  <span className="text-[11px] text-stone-400">
-                    Droylsden, Manchester
+                  <span className="text-[11px] font-body text-ink-muted">
+                    Droylsden, Manchester M43 6DE
                   </span>
                 </div>
               </div>
@@ -172,6 +201,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
           </div>
 
         </div>
+
       </div>
     </section>
   );

@@ -2,6 +2,8 @@ export interface BusinessData {
   name: string;
   brandTagline: string;
   established: string;
+  logoUrl: string;
+  coverUrl: string;
   address: {
     street: string;
     neighborhood: string;
@@ -33,8 +35,8 @@ export interface BusinessData {
     actionLabel: string;
   };
   social: {
-    instagram: string;
     facebook: string;
+    instagram: string;
     instagramHandle: string;
   };
   keyPillars: Array<{
@@ -48,6 +50,8 @@ export const businessData: BusinessData = {
   name: "Market St. Barber Studio",
   brandTagline: "Precision Cuts. Modern Fades. Droylsden Craftsmanship.",
   established: "Droylsden, Manchester",
+  logoUrl: "/images/real/official_logo.jpg",
+  coverUrl: "/images/real/official_cover.jpg",
   address: {
     street: "92 Market Street",
     neighborhood: "Droylsden",
@@ -80,8 +84,8 @@ export const businessData: BusinessData = {
     actionLabel: "Book Appointment"
   },
   social: {
+    facebook: "https://www.facebook.com/p/Market-St-Barber-Studio-61593989375045/",
     instagram: "https://www.instagram.com/marketstbarberstudio/",
-    facebook: "https://www.facebook.com/people/Market-St-Barber-Studio/61556942953246/",
     instagramHandle: "@marketstbarberstudio"
   },
   keyPillars: [
@@ -92,7 +96,7 @@ export const businessData: BusinessData = {
     },
     {
       title: "Hot Towel & Straight Razor",
-      description: "Traditional Turkish & British hot towel lather treatment with hand-honed blade razor lines.",
+      description: "Traditional hot towel lather treatment with hand-honed blade razor lines for razor-sharp edges.",
       highlight: "Pure Luxury"
     },
     {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { servicesData, BarberService } from '../../data/services';
 import { businessData } from '../../data/business';
-import { Scissors, Clock, Sparkles, Check, ArrowRight } from 'lucide-react';
+import { Scissors, Clock, Check, ArrowRight, Sparkles, Zap, ShieldCheck } from 'lucide-react';
 
 interface ServicesSectionProps {
   onSelectService: (service: BarberService) => void;
@@ -17,41 +17,41 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
     : servicesData.filter(s => s.category === selectedCategory);
 
   return (
-    <section id="services" className="py-20 sm:py-28 bg-[#0F0F12] relative overflow-hidden border-t border-[#26242B]">
+    <section id="services" className="py-20 sm:py-28 bg-purple-pale relative overflow-hidden border-t-2 border-ink">
       
-      {/* Background Subtle Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#2B2834_1px,transparent_1px)] [background-size:24px_24px] opacity-25 pointer-events-none" />
+      {/* Background Subtle Dot Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#7C3AED_1px,transparent_1px)] [background-size:24px_24px] opacity-15 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-950/40 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-amber-300 mb-4">
-            <Scissors className="w-3.5 h-3.5 text-amber-500" />
-            <span>Verified Official Service Menu</span>
+          <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-purple-soft px-4 py-1.5 text-xs font-display font-black uppercase tracking-widest text-purple-deep shadow-brutal-sm mb-4">
+            <Scissors className="w-3.5 h-3.5 text-purple-electric" />
+            <span>Official Droylsden Service Menu</span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-5xl font-black text-white tracking-tight uppercase leading-tight">
+          <h2 className="font-display text-3xl sm:text-5xl font-black text-ink tracking-tight uppercase leading-tight">
             CRAFT SERVICE MENU &{' '}
-            <span className="text-amber-400 block sm:inline">
-              CLEAR PRICING
+            <span className="text-purple-electric block sm:inline">
+              CLEAR RATES
             </span>
           </h2>
 
-          <p className="mt-4 text-base sm:text-lg text-stone-300">
-            Transparent GBP rates verified directly from our Droylsden studio booking calendar. Zero hidden add-ons or subscription fees.
+          <p className="mt-4 text-base sm:text-lg text-ink-muted font-body">
+            Official GBP rates verified directly from our Droylsden studio booking schedule. Zero hidden add-ons or subscription fees.
           </p>
 
           {/* Category Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 mt-8">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-display font-black uppercase tracking-wider transition-all border-2 border-ink ${
                   selectedCategory === cat
-                    ? 'bg-amber-500 text-stone-950 shadow-md shadow-amber-500/20'
-                    : 'bg-[#1C1A22] text-stone-300 hover:text-white border border-[#33303D]'
+                    ? 'bg-purple-electric text-white shadow-brutal translate-x-0.5 translate-y-0.5'
+                    : 'bg-white text-ink hover:bg-purple-soft shadow-brutal-sm'
                 }`}
               >
                 {cat}
@@ -60,67 +60,67 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
           </div>
         </div>
 
-        {/* Services Cards Grid */}
+        {/* Services Cards Grid (Appointment Ticket Styling) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredServices.map((service) => (
             <div
               key={service.id}
-              className={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 border ${
+              className={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 border-2 border-ink shadow-brutal hover:shadow-brutal-lg hover:-translate-y-1 ${
                 service.popular
-                  ? 'bg-gradient-to-b from-[#1E1B26] to-[#14121A] border-amber-500/60 shadow-xl shadow-amber-950/30 ring-1 ring-amber-500/40'
-                  : 'bg-[#16141D] border-[#2B2834] hover:border-amber-500/40'
+                  ? 'bg-white ring-2 ring-purple-electric'
+                  : 'bg-white'
               }`}
             >
               {service.popular && (
-                <div className="absolute -top-3.5 right-6 rounded-full bg-gradient-to-r from-amber-600 to-amber-500 px-3.5 py-1 text-[10px] font-black uppercase tracking-wider text-stone-950 shadow-md">
-                  Most Booked
+                <div className="absolute -top-3.5 right-6 rounded-full bg-purple-deep text-highlight px-3.5 py-1 text-[10px] font-display font-black uppercase tracking-wider border-2 border-ink shadow-brutal-sm">
+                  ★ Studio Favourite
                 </div>
               )}
 
               <div>
                 <div className="flex items-center justify-between gap-4 mb-3">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-amber-400 font-bold">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-purple-electric font-bold bg-purple-soft px-2.5 py-0.5 rounded-md">
                     {service.category}
                   </span>
-                  <div className="flex items-center gap-1.5 text-xs text-stone-400">
-                    <Clock className="w-3.5 h-3.5 text-stone-400" />
+                  <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-ink-muted">
+                    <Clock className="w-3.5 h-3.5 text-purple-electric" />
                     <span>{service.durationLabel}</span>
                   </div>
                 </div>
 
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
+                <h3 className="font-display text-xl sm:text-2xl font-black text-ink mb-2">
                   {service.name}
                 </h3>
 
-                <p className="text-sm text-stone-300 leading-relaxed mb-6">
+                <p className="text-sm font-body text-ink-muted leading-relaxed mb-6">
                   {service.description}
                 </p>
 
                 {/* Inclusions */}
-                <div className="space-y-2 mb-6 pt-4 border-t border-[#26242B]">
+                <div className="space-y-2 mb-6 pt-4 border-t-2 border-purple-pale">
                   {service.inclusions.map((inc, i) => (
-                    <div key={i} className="flex items-center gap-2 text-xs text-stone-300">
-                      <Check className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                    <div key={i} className="flex items-center gap-2 text-xs font-body font-semibold text-ink">
+                      <Check className="w-3.5 h-3.5 text-purple-electric shrink-0" />
                       <span>{inc}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Bottom Price & Book Button */}
-              <div className="pt-4 border-t border-[#26242B] flex items-center justify-between">
+              {/* Bottom Price & Select Button */}
+              <div className="pt-4 border-t-2 border-purple-soft flex items-center justify-between">
                 <div>
-                  <span className="block text-[10px] uppercase font-mono text-stone-400">
+                  <span className="block text-[10px] uppercase font-mono font-bold text-ink-light">
                     Studio Rate
                   </span>
-                  <span className="font-serif text-2xl font-black text-amber-400">
+                  <span className="font-display text-3xl font-black text-purple-deep">
                     £{service.priceGBP.toFixed(2)}
                   </span>
                 </div>
 
                 <button
                   onClick={() => onSelectService(service)}
-                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 text-xs font-bold uppercase tracking-wider shadow-md transition-all active:scale-95"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-purple-electric hover:bg-purple-deep text-white text-xs font-display font-black uppercase tracking-wider border-2 border-ink shadow-brutal-sm transition-all active:translate-x-0.5 active:translate-y-0.5"
                 >
                   <span>Select</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -131,29 +131,45 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
           ))}
         </div>
 
-        {/* Free Hosting vs Square Platform Notice Banner */}
-        <div className="mt-12 rounded-3xl border border-amber-500/40 bg-gradient-to-r from-amber-950/40 via-[#1C1A22] to-amber-950/40 p-6 sm:p-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-2 text-center md:text-left">
-              <span className="inline-block rounded-md bg-amber-500/20 text-amber-400 px-2.5 py-0.5 text-xs font-mono font-bold uppercase">
-                Direct Studio Advantage
-              </span>
-              <h4 className="font-serif text-xl sm:text-2xl font-bold text-white">
-                Zero Monthly Subscription Fees for Market St.
-              </h4>
-              <p className="text-sm text-stone-300 max-w-2xl">
-                Unlike Square or Squarespace websites that charge £15–£35 every single month, this dedicated custom web deployment comes with free ultra-fast global hosting included forever.
+        {/* Free Hosting vs Square Platform Comparison Card */}
+        <div id="direct-perks" className="mt-14 rounded-3xl border-2 border-ink bg-white p-6 sm:p-9 shadow-brutal-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div className="lg:col-span-8 space-y-3">
+              <div className="inline-flex items-center gap-2 rounded-md bg-purple-soft border border-purple-deep/30 px-3 py-1 text-xs font-mono font-bold uppercase text-purple-deep">
+                <Zap className="w-3.5 h-3.5 text-purple-electric" />
+                <span>The Direct Advantage for Market St. Barber Studio</span>
+              </div>
+              <h3 className="font-display text-2xl sm:text-3xl font-black text-ink uppercase">
+                Save Hundreds Every Year: £0 Monthly Hosting Forever
+              </h3>
+              <p className="font-body text-sm sm:text-base text-ink-muted leading-relaxed">
+                Platforms like Square Online and Squarespace bill barbers £15 to £35 every month just to keep a web page active. With this custom website build, <strong>high-speed global hosting is completely free on us</strong> — meaning zero recurring monthly overhead for your studio.
               </p>
             </div>
 
-            <a
-              href={businessData.booking.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm uppercase tracking-wider shadow-lg shrink-0 transition-all"
-            >
-              <span>Confirm on WhatsApp</span>
-            </a>
+            <div className="lg:col-span-4 flex flex-col gap-3">
+              <div className="p-4 rounded-2xl bg-purple-pale border-2 border-ink space-y-2">
+                <div className="flex items-center justify-between text-xs font-display font-bold">
+                  <span className="text-ink-muted">Squarespace / Square fees:</span>
+                  <span className="line-through text-red-600 font-black">£20 - £35 / mo</span>
+                </div>
+                <div className="flex items-center justify-between text-sm font-display font-black text-purple-deep border-t border-purple-deep/20 pt-2">
+                  <span>Our Custom Build:</span>
+                  <span className="text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded font-black">£0 / Free Forever</span>
+                </div>
+              </div>
+
+              <a
+                href={businessData.booking.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-purple-electric hover:bg-purple-deep text-white font-display font-black text-xs uppercase tracking-wider border-2 border-ink shadow-brutal transition-all"
+              >
+                <span>Confirm on WhatsApp</span>
+              </a>
+            </div>
+
           </div>
         </div>
 
