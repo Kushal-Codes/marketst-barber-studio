@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { businessData, getStudioStatus } from '../../data/business';
-import { Phone, Calendar, Menu, X, MessageSquare, MapPin, Sparkles } from 'lucide-react';
+import { Phone, Calendar, Menu, X, MessageSquare, MapPin } from 'lucide-react';
 
 interface NavbarProps {
   onOpenBooking: () => void;
@@ -41,14 +41,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               Prices & Services
             </a>
             <a href="#gallery" className="text-ink hover:text-purple-electric transition-colors">
-              Client Cuts
+              Our Work
             </a>
             <a href="#location" className="text-ink hover:text-purple-electric transition-colors">
               Location & Hours
             </a>
-            <a href="#direct-perks" className="text-purple-electric hover:text-purple-deep transition-colors flex items-center gap-1">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Zero Monthly Fees</span>
+            <a href="#walk-ins" className="text-purple-deep hover:text-purple-electric transition-colors flex items-center gap-1">
+              <span>Walk-ins Welcome</span>
             </a>
           </nav>
 
@@ -111,7 +110,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               onClick={() => setMobileMenuOpen(false)}
               className="px-3 py-2.5 rounded-xl text-ink hover:bg-purple-soft"
             >
-              📸 Real Facebook Client Cuts
+              📸 Our Work & Studio Chair Cuts
             </a>
             <a
               href="#location"

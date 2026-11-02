@@ -1,6 +1,6 @@
 import React from 'react';
 import { businessData } from '../../data/business';
-import { MapPin, Phone, MessageSquare, ArrowUp, Zap } from 'lucide-react';
+import { MapPin, Phone, MessageSquare, ArrowUp, Scissors, Heart } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-sm font-body text-purple-soft/80 max-w-sm leading-relaxed">
-              Droylsden's premier modern barber studio. Precision skin fades, beard shaping, and traditional steamed hot towel grooming.
+              Droylsden's modern barber studio. Precision skin fades, beard shaping, and traditional steamed hot towel grooming. Walk-ins and bookings welcome.
             </p>
 
             <div className="flex items-center gap-3 pt-2">
@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="px-3.5 py-2 rounded-xl bg-purple-deep border border-highlight/40 text-xs font-display font-bold text-white hover:bg-purple-electric transition-colors"
               >
-                Official Facebook Page
+                Facebook Page
               </a>
               <a
                 href={businessData.booking.whatsappUrl}
@@ -77,13 +77,15 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Col 3: Direct Guarantee */}
+          {/* Col 3: Hours & Quick Actions */}
           <div className="md:col-span-3 space-y-3">
             <h4 className="font-display text-sm font-black uppercase tracking-wider text-highlight">
-              Free Hosting Guarantee
+              Opening Hours
             </h4>
             <p className="text-xs font-body text-purple-soft/80 leading-relaxed">
-              100% Free Hosting forever. Zero monthly subscription costs or third-party client booking commissions.
+              Mon, Wed – Sat: 9:00 AM – 6:00 PM<br />
+              Sunday: 10:00 AM – 4:00 PM<br />
+              Tuesday: Closed
             </p>
             <button
               onClick={scrollToTop}

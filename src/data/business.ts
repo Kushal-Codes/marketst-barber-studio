@@ -96,21 +96,21 @@ export const businessData: BusinessData = {
     },
     {
       title: "Hot Towel & Straight Razor",
-      description: "Traditional hot towel lather treatment with hand-honed blade razor lines for razor-sharp edges.",
+      description: "Traditional hot towel lather treatment with hand-honed blade razor lines for ultra-sharp edges.",
       highlight: "Pure Luxury"
     },
     {
-      title: "Zero Monthly Fees Guarantee",
-      description: "Direct online booking without Square lock-in or third-party client booking surcharges.",
-      highlight: "Direct Booking"
+      title: "Walk-ins & Appointments",
+      description: "Fast, flexible booking via WhatsApp or online, plus walk-in availability 6 days a week.",
+      highlight: "Easy Booking"
     }
   ]
 };
 
 export function getStudioStatus(): { isOpen: boolean; statusText: string; subText: string } {
   const now = new Date();
-  const ukHour = (now.getUTCHours() + 0) % 24; // GMT / BST approximation
-  const day = now.getUTCDay(); // 0 is Sunday, 2 is Tuesday
+  const ukHour = (now.getUTCHours() + 0) % 24;
+  const day = now.getUTCDay();
 
   if (day === 2) {
     return {
@@ -120,7 +120,7 @@ export function getStudioStatus(): { isOpen: boolean; statusText: string; subTex
     };
   }
 
-  if (day === 0) { // Sunday 10am - 4pm
+  if (day === 0) {
     if (ukHour >= 10 && ukHour < 16) {
       return {
         isOpen: true,
@@ -135,7 +135,6 @@ export function getStudioStatus(): { isOpen: boolean; statusText: string; subTex
     };
   }
 
-  // Mon, Wed, Thu, Fri, Sat: 9am - 6pm
   if (ukHour >= 9 && ukHour < 18) {
     return {
       isOpen: true,

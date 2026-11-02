@@ -1,7 +1,7 @@
 import React from 'react';
 import { businessData, getStudioStatus } from '../../data/business';
 import { VerifiedStamp } from '../animations/VerifiedStamp';
-import { MapPin, Phone, MessageSquare, Calendar, Sparkles, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
+import { MapPin, Phone, MessageSquare, Calendar, Sparkles, CheckCircle2, ShieldCheck, Clock, Scissors } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenBooking: () => void;
@@ -16,7 +16,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[560px] bg-gradient-to-b from-purple-soft/60 via-purple-pale/40 to-transparent blur-3xl pointer-events-none" />
       <div className="absolute -top-24 right-10 w-96 h-96 rounded-full bg-highlight/30 blur-3xl pointer-events-none" />
 
-      {/* Subtle Grid Lines Overlay (Architectural Barber Grid) */}
+      {/* Subtle Grid Lines Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#EDE9FE_1px,transparent_1px),linear-gradient(to_bottom,#EDE9FE_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-70 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -35,13 +35,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
           </div>
 
           <div className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-highlight/40 px-3.5 py-1.5 text-xs font-display font-black text-purple-deep shadow-brutal-sm">
-            <Zap className="w-3.5 h-3.5 text-purple-electric fill-purple-electric" />
-            <span>£0 Monthly Fees · Free Hosting Forever</span>
+            <Scissors className="w-3.5 h-3.5 text-purple-electric" />
+            <span>Skin Fades from £15 · Hot Towel Shaves</span>
           </div>
 
         </div>
 
-        {/* Main Grid: Left Typography, Right Real Facebook Image & Logo in Brutalist Frame */}
+        {/* Main Grid: Left Typography, Right Real Studio Photo in Brutalist Frame */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
           {/* Left: 7 Columns */}
@@ -61,7 +61,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
                   Market St. Barber Studio
                 </span>
                 <span className="font-body text-xs font-bold text-ink">
-                  Droylsden's Premier Modern Gents Grooming
+                  Droylsden's Modern Barber Studio
                 </span>
               </div>
             </div>
@@ -70,7 +70,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-ink uppercase tracking-tight leading-[0.98]">
               PRECISION CRAFT.{' '}
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-deep via-purple-electric to-highlight-accent drop-shadow-sm">
-                MODERN DROYLSDEN CUTS.
+                MODERN GROOMING.
               </span>
             </h1>
 
@@ -82,7 +82,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
             {/* Hand-written Callout */}
             <div className="flex items-center gap-3 pt-1">
               <span className="font-hand text-2xl text-purple-deep font-bold -rotate-2 bg-highlight/30 px-3 py-1 rounded-lg border border-purple-deep/30">
-                ✍️ Zero Squarespace monthly fees — high-speed hosting is on us!
+                ✂️ Walk-ins & appointments welcome 6 days a week!
               </span>
             </div>
 
@@ -119,14 +119,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
                 <span>Hot Towel Steaming</span>
               </div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-purple-electric shrink-0" />
-                <span>Zero Monthly Costs</span>
+                <CheckCircle2 className="w-4 h-4 text-purple-electric shrink-0" />
+                <span>Walk-ins Welcome</span>
               </div>
             </div>
 
           </div>
 
-          {/* Right: 5 Columns Brutalist Card with Real Facebook Image & Logo */}
+          {/* Right: 5 Columns Brutalist Card with Real Studio Image & Logo */}
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
@@ -139,10 +139,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
               <div className="relative rounded-3xl border-2 border-ink bg-purple-pale p-3.5 shadow-brutal-xl overflow-hidden group">
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-ink border-2 border-ink">
                   
-                  {/* REAL FACEBOOK POST PHOTO */}
+                  {/* REAL STUDIO WORK PHOTO */}
                   <img
                     src="/images/real/real_cut_hero.jpg"
-                    alt="Market St. Barber Studio real client haircut Droylsden Manchester"
+                    alt="Market St. Barber Studio haircut Droylsden Manchester"
                     className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
                     loading="eager"
                   />
@@ -150,9 +150,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
                   {/* Subtle Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
 
-                  {/* Overlaid Verified Facebook Badge */}
+                  {/* Overlaid Badge */}
                   <div className="absolute top-3 left-3 rounded-full border-2 border-ink bg-white/95 backdrop-blur-md px-3.5 py-1 text-[11px] font-display font-black uppercase text-purple-deep shadow-brutal-sm">
-                    Verified Facebook Showcase
+                    Signature Fade & Texture
                   </div>
 
                   {/* Bottom Studio Info Overlay */}
@@ -182,10 +182,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
                 </div>
               </div>
 
-              {/* Small Floating Proof Badge */}
+              {/* Small Floating Studio Badge */}
               <div className="absolute -bottom-6 -left-4 rounded-2xl border-2 border-ink bg-white p-3.5 shadow-brutal hidden sm:flex items-center gap-3 z-20">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-purple-electric text-white font-black font-display text-sm">
-                  ★ 5.0
+                  M43
                 </div>
                 <div>
                   <span className="block font-display text-xs font-black text-ink uppercase">

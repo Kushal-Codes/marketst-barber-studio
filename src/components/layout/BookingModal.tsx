@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { servicesData, BarberService } from '../../data/services';
 import { businessData } from '../../data/business';
-import { X, Calendar, Clock, Check, MessageSquare, ExternalLink, Zap } from 'lucide-react';
+import { X, Calendar, Clock, Check, MessageSquare, ExternalLink, MapPin } from 'lucide-react';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -54,10 +54,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             </span>
           </div>
           <h3 className="font-display text-2xl sm:text-3xl font-black text-ink">
-            Book Droylsden Appointment
+            Book Your Chair
           </h3>
           <p className="text-xs font-body text-ink-muted">
-            Select your haircut or beard grooming service to launch an instant pre-formatted WhatsApp booking or open the Square portal.
+            Select your haircut or beard grooming service to send a quick WhatsApp booking or open our online appointment portal.
           </p>
         </div>
 
@@ -127,16 +127,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl bg-white border-2 border-ink text-ink hover:bg-purple-pale text-xs font-display font-bold uppercase tracking-wider shadow-brutal-sm transition-all"
           >
-            <span>Or Book via Square Site</span>
+            <span>Or Book via Square Appointments</span>
             <ExternalLink className="w-3.5 h-3.5 text-ink-light" />
           </a>
         </div>
 
-        {/* Value Proposition Note */}
+        {/* Studio Location Note */}
         <div className="mt-5 p-3 rounded-xl bg-purple-pale border-2 border-ink text-center">
           <p className="text-[11px] text-purple-deep font-mono font-bold flex items-center justify-center gap-1.5">
-            <Zap className="w-3.5 h-3.5 text-purple-electric" />
-            <span>Hosted 100% Free · Zero Monthly Subscription Fees</span>
+            <MapPin className="w-3.5 h-3.5 text-purple-electric" />
+            <span>92 Market Street · Droylsden, Manchester M43 6DE</span>
           </p>
         </div>
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { servicesData, BarberService } from '../../data/services';
 import { businessData } from '../../data/business';
-import { Scissors, Clock, Check, ArrowRight, Sparkles, Zap, ShieldCheck } from 'lucide-react';
+import { Scissors, Clock, Check, ArrowRight, Sparkles, Calendar, MessageSquare, Heart } from 'lucide-react';
 
 interface ServicesSectionProps {
   onSelectService: (service: BarberService) => void;
@@ -28,7 +28,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-purple-soft px-4 py-1.5 text-xs font-display font-black uppercase tracking-widest text-purple-deep shadow-brutal-sm mb-4">
             <Scissors className="w-3.5 h-3.5 text-purple-electric" />
-            <span>Official Droylsden Service Menu</span>
+            <span>Droylsden Service Menu</span>
           </div>
 
           <h2 className="font-display text-3xl sm:text-5xl font-black text-ink tracking-tight uppercase leading-tight">
@@ -39,7 +39,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-ink-muted font-body">
-            Official GBP rates verified directly from our Droylsden studio booking schedule. Zero hidden add-ons or subscription fees.
+            Transparent GBP rates for all haircuts, beard treatments, and full grooming packages. Cash and card payments accepted.
           </p>
 
           {/* Category Tabs */}
@@ -73,7 +73,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             >
               {service.popular && (
                 <div className="absolute -top-3.5 right-6 rounded-full bg-purple-deep text-highlight px-3.5 py-1 text-[10px] font-display font-black uppercase tracking-wider border-2 border-ink shadow-brutal-sm">
-                  ★ Studio Favourite
+                  ★ Most Popular
                 </div>
               )}
 
@@ -111,7 +111,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               <div className="pt-4 border-t-2 border-purple-soft flex items-center justify-between">
                 <div>
                   <span className="block text-[10px] uppercase font-mono font-bold text-ink-light">
-                    Studio Rate
+                    Price
                   </span>
                   <span className="font-display text-3xl font-black text-purple-deep">
                     £{service.priceGBP.toFixed(2)}
@@ -122,7 +122,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                   onClick={() => onSelectService(service)}
                   className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-purple-electric hover:bg-purple-deep text-white text-xs font-display font-black uppercase tracking-wider border-2 border-ink shadow-brutal-sm transition-all active:translate-x-0.5 active:translate-y-0.5"
                 >
-                  <span>Select</span>
+                  <span>Select & Book</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -131,32 +131,36 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
           ))}
         </div>
 
-        {/* Free Hosting vs Square Platform Comparison Card */}
-        <div id="direct-perks" className="mt-14 rounded-3xl border-2 border-ink bg-white p-6 sm:p-9 shadow-brutal-xl">
+        {/* Customer-Facing Walk-in & Booking Convenience Banner */}
+        <div id="walk-ins" className="mt-14 rounded-3xl border-2 border-ink bg-white p-6 sm:p-9 shadow-brutal-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-8 space-y-3">
               <div className="inline-flex items-center gap-2 rounded-md bg-purple-soft border border-purple-deep/30 px-3 py-1 text-xs font-mono font-bold uppercase text-purple-deep">
-                <Zap className="w-3.5 h-3.5 text-purple-electric" />
-                <span>The Direct Advantage for Market St. Barber Studio</span>
+                <Sparkles className="w-3.5 h-3.5 text-purple-electric" />
+                <span>Walk-Ins Always Welcome</span>
               </div>
               <h3 className="font-display text-2xl sm:text-3xl font-black text-ink uppercase">
-                Save Hundreds Every Year: £0 Monthly Hosting Forever
+                Flexible Booking or Direct Walk-in Every Day
               </h3>
               <p className="font-body text-sm sm:text-base text-ink-muted leading-relaxed">
-                Platforms like Square Online and Squarespace bill barbers £15 to £35 every month just to keep a web page active. With this custom website build, <strong>high-speed global hosting is completely free on us</strong> — meaning zero recurring monthly overhead for your studio.
+                Need a fresh cut on short notice? Feel free to drop by <strong>92 Market Street in Droylsden</strong>. We accept walk-ins throughout the week, or you can message us directly on WhatsApp to reserve your chair in advance.
               </p>
             </div>
 
             <div className="lg:col-span-4 flex flex-col gap-3">
               <div className="p-4 rounded-2xl bg-purple-pale border-2 border-ink space-y-2">
                 <div className="flex items-center justify-between text-xs font-display font-bold">
-                  <span className="text-ink-muted">Squarespace / Square fees:</span>
-                  <span className="line-through text-red-600 font-black">£20 - £35 / mo</span>
+                  <span className="text-ink">Mon, Wed – Sat:</span>
+                  <span className="font-mono text-purple-deep font-black">9:00 AM – 6:00 PM</span>
                 </div>
-                <div className="flex items-center justify-between text-sm font-display font-black text-purple-deep border-t border-purple-deep/20 pt-2">
-                  <span>Our Custom Build:</span>
-                  <span className="text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded font-black">£0 / Free Forever</span>
+                <div className="flex items-center justify-between text-xs font-display font-bold">
+                  <span className="text-ink">Sunday:</span>
+                  <span className="font-mono text-purple-deep font-black">10:00 AM – 4:00 PM</span>
+                </div>
+                <div className="flex items-center justify-between text-xs font-display font-bold text-ink-muted border-t border-purple-deep/20 pt-2">
+                  <span>Tuesday:</span>
+                  <span className="font-mono text-purple-electric font-black">Closed (Rest Day)</span>
                 </div>
               </div>
 
@@ -166,7 +170,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-purple-electric hover:bg-purple-deep text-white font-display font-black text-xs uppercase tracking-wider border-2 border-ink shadow-brutal transition-all"
               >
-                <span>Confirm on WhatsApp</span>
+                <MessageSquare className="w-4 h-4 text-white" />
+                <span>Message Us on WhatsApp</span>
               </a>
             </div>
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { galleryItems, GalleryItem } from '../../data/gallery';
-import { Camera, ExternalLink, X, Sparkles } from 'lucide-react';
+import { Camera, ExternalLink, X, Scissors } from 'lucide-react';
 import { businessData } from '../../data/business';
 
 export const GallerySection: React.FC = () => {
@@ -18,18 +18,18 @@ export const GallerySection: React.FC = () => {
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-purple-soft px-4 py-1.5 text-xs font-display font-black uppercase tracking-widest text-purple-deep shadow-brutal-sm mb-4">
             <Camera className="w-3.5 h-3.5 text-purple-electric" />
-            <span>Genuine Facebook Timeline Photos</span>
+            <span>Studio Portfolio</span>
           </div>
 
           <h2 className="font-display text-3xl sm:text-5xl font-black text-ink tracking-tight uppercase leading-tight">
-            RECENT CLIENT CUTS &{' '}
+            RECENT WORK FROM{' '}
             <span className="text-purple-electric block sm:inline">
-              REAL TRANSFORMATIONS
+              OUR CHAIRS
             </span>
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-ink-muted font-body">
-            100% authentic photography from our 92 Market Street studio chairs. Pulled directly from the official Market St. Barber Studio Facebook page.
+            Explore recent haircut transformations, clean beard lines, and skin fades crafted right here on 92 Market Street in Droylsden.
           </p>
         </div>
 
@@ -74,15 +74,15 @@ export const GallerySection: React.FC = () => {
                 </p>
               </div>
 
-              {/* Provenance Tag on Top Right */}
+              {/* Category Tag on Top Right */}
               <div className="absolute top-3 right-3 rounded-full bg-white/95 border-2 border-ink px-2.5 py-0.5 text-[10px] font-display font-black uppercase text-purple-deep shadow-brutal-sm">
-                Facebook Post
+                {item.category}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Facebook Page Button */}
+        {/* Social Media Link */}
         <div className="mt-12 text-center">
           <a
             href={businessData.social.facebook}
@@ -91,7 +91,7 @@ export const GallerySection: React.FC = () => {
             className="inline-flex items-center gap-2.5 rounded-2xl border-2 border-ink bg-purple-soft px-7 py-4 text-sm font-display font-black uppercase tracking-wider text-purple-deep shadow-brutal hover:bg-purple-pale hover:shadow-brutal-lg transition-all"
           >
             <Camera className="w-4 h-4 text-purple-electric" />
-            <span>Visit Market St. Barber Studio on Facebook</span>
+            <span>Follow Us On Social Media</span>
             <ExternalLink className="w-4 h-4 text-purple-deep" />
           </a>
         </div>
@@ -110,7 +110,7 @@ export const GallerySection: React.FC = () => {
           >
             <button
               onClick={() => setActiveItem(null)}
-              className="absolute top-4 right-4 p-2 rounded-full bg-purple-pale border-2 border-ink text-ink hover:text-purple-electric"
+              className="absolute top-4 right-4 p-2 rounded-full bg-purple-pale border-2 border-ink text-ink hover:text-purple-electric shadow-brutal-sm"
               aria-label="Close"
             >
               <X className="w-5 h-5" />
@@ -126,7 +126,7 @@ export const GallerySection: React.FC = () => {
 
             <div className="space-y-2">
               <span className="text-xs font-mono uppercase tracking-wider text-purple-electric font-black">
-                {activeItem.category} · {activeItem.provenance}
+                {activeItem.category} · 92 Market Street
               </span>
               <h3 className="font-display text-xl font-black text-ink">
                 {activeItem.title}
